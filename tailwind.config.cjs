@@ -1,6 +1,5 @@
 module.exports = {
-  mode: 'jit',
-  purge: {
+  content: {
     enabled: !process.env.ROLLUP_WATCH,
     mode: 'all',
     content: ['./**/**/*.html', './**/**/*.svelte'],
@@ -10,7 +9,6 @@ module.exports = {
         [...content.matchAll(/(?:class:)*([\w\d-/:%.]+)/gm)].map(([_match, group, ..._rest]) => group),
     },
   },
-  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       backgroundColor: {
@@ -20,9 +18,6 @@ module.exports = {
        'iict': "url('/img/iict.jpg')",
       }
     }
-  },
-  variants: {
-    extend: {},
   },
   plugins: [],
 }
