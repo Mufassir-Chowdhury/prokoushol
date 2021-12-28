@@ -15,7 +15,7 @@ module.exports = {
         'primary-dark': '#0B031B',
       },
       backgroundImage: {
-       'iict': "url('/img/iict.jpg')",
+       'iict': "url('/img/iict.png')",
       }
     }
   },

@@ -1,11 +1,15 @@
 <script>
     import { page } from '$app/stores';
     import { options, subjects, cards } from '../../../depts';
+
     const department = $page.params.dept
     const year = $page.params.year;
     const semester = $page.params.semester;
     const course = $page.params.course;
+    const resource = $page.params.resource;
+    
     const sem = `${year}-${semester}`;
+    
     $: selected = options.find((o) => o.value === sem);
     $: selected_course = subjects.find((o) => o.value === course);
 
@@ -16,7 +20,28 @@
         '2016-2017',
         '2015-2016',
     ]
-
+    
+    const courses = {
+        'CSE': {
+            '1-1': [
+                { id: 0, name: 'CSE 133', value: 'CSE133' },
+                { id: 1, name: 'CSE 134', value: 'CSE134' },
+                { id: 2, name: 'CSE 143', value: 'CSE143' },
+            ],
+            '1-2': [
+                { id: 3, name: 'EEE 109D', value: 'EEE109D' },
+                { id: 4, name: 'EEE 110D', value: 'EEE110D' },
+                { id: 5, name: 'MAT 102D', value: 'MAT102D' },
+            ]
+        },
+        'EEE': {
+            '1-1': [
+                
+                { id: 6, name: 'ENG 101D', value: 'ENG101D' },
+                { id: 7, name: 'ENG 102D', value: 'ENG102D' },
+            ]
+        }
+    }
 </script>
 
 <svelte:head>

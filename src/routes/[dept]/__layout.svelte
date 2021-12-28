@@ -1,10 +1,10 @@
 <script context="module">
-	import '../app.css';
+	import '../../app.css';
 </script>
 
-<div class="w-screen h-20 flex px-10 text-white bg-black items-center justify-between">
+<div class="w-screen h-20 flex px-10 text-black bg-green-100 items-center justify-between">
     <a href="/">
-        <div class="font-bold text-xl">Prokoushol</div>
+        <div class="font-bold text-xl">SUSTian View</div>
     </a>
     <div class="flex space-x-6 items-center">
         <div>SUST</div>
@@ -18,6 +18,7 @@
           </svg></div>
     </div>
 </div>
+
 
 <slot></slot>
 

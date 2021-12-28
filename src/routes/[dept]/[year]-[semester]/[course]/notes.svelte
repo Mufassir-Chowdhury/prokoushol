@@ -10,11 +10,24 @@
     $: selected_course = subjects.find((o) => o.value === course);
 
     const sessions = [
-        '2019-2020',
-        '2018-2019',
-        '2017-2018',
-        '2016-2017',
-        '2015-2016',
+        { name: '2019-2020', notes: [
+            'mufassir',
+            'naeem',
+        ]},
+        { name: '2018-2019', notes: [
+            'siddik',
+        ]},
+        {
+            name: '2017-2018', notes: [
+
+            ]
+        },
+        { name: '2016-2017', notes: [
+            'rafi'
+        ]},
+        { name: '2015-2016', notes: [
+            'sajid'
+        ]}
     ]
 
 </script>

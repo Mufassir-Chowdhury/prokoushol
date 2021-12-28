@@ -1,25 +1,57 @@
 <script>
 	import { data } from './depts.js';
-    // import '../app.css';
+    import '../app.css';
     import Item from './Item.svelte'
 </script>
 
 <svelte:head>
-	<title>Prokoushol</title>
+	<title>SUSTian View</title>
 </svelte:head>
 <main>
-	<div class="h-screen w-screen bg-iict bg-cover">
-		<div class=" h-full flex justify-center items-center text-white font-sans text-6xl">
-			<div>PROKOUSHOL</div>
+	<div class="h-screen w-screen bg-iict bg-cover flex flex-col justify-between text-black">
+		<script context="module">
+			import '../app.css';
+		</script>
+		
+		<div class="w-screen h-20 flex px-10 text-black items-center justify-between">
+			<a href="/">
+				<div class="font-bold text-xl"></div>
+			</a>
+			<div class="flex space-x-6 items-center">
+				<div>SUST</div>
+				<div>GREETING</div>
+				<div>ACADEMIC</div>
+				<div>NOTICE</div>
+				<div>FAQ</div>
+				<div>CONTACT</div>
+				<div><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+				  </svg></div>
+			</div>
 		</div>
-	</div>
-	<div class="m-10">
-		<h2 class=" font-semibold text-3xl my-5">Departments</h2>
-		<div>
-			{#each Object.entries(data) as entry}
-			<Item {entry} />
-			{/each}
+		<div class="px-10 h-full flex justify-between items-center  font-sans text-6xl">
+			<div class=" ">
+				<h2 class=" font-semibold text-xl">Schools</h2>
+				<div>
+					{#each Object.entries(data) as entry}
+						<Item {entry} />
+					{/each}
+				</div>
+			</div>		
+			<div class=" w-2/5 text-right">
+				<div class="text-blue-400">আমাদের সম্পর্কে</div>
+				<!-- <div>SUSTian View</div> -->
+				<div class=" text-lg mt-10">
+					যাঁকে চুমু দেওয়া যেত৷ প্রত্যুত্তরে তিনি চুমু দিতেন৷ যাঁর সঙ্গে ঠাট্টা করা যেত৷ তিনিও ঠাট্টা-তামাশা করতেন৷ তাঁর শরীরে ভর দিয়ে কথা বলা যেত৷ আর তিনিও কথা বলতেন অপরজনের কাঁধে কিংবা হাঁটুতে হাত রেখে৷ যাঁর কাছে হারার সব গল্পগুলো বলা যেত৷
+				</div>
+			</div>
 		</div>
+		<footer class="h-14  text-center">
+			JOIN US
+			<span class="material-icons">
+				facebook
+			</span>    
+			<div>Copyright @2021 Prokoushol</div>
+		</footer>
 	</div>
-	<img src="https://prokoushol.s3.ap-southeast-1.amazonaws.com/cloudfront-test-image.png?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHcaCmFwLXNvdXRoLTEiSDBGAiEA1H7HBOBonTQWpTZrPJt%2BwnbIk3jqJHacF3F5%2Fbl2%2FTQCIQC2a7Oxdu3I66nq3K9NUvGQzCNDJFFvIPTC6jhOxuZanCr2AghwEAAaDDA2ODQ0ODQ3ODc3OCIMr9KUptYTsuCw0qSSKtMC1hOyo8C5l%2B6oIUfQLWlnd1ojC8idnao9h0TrUH5ut47yC3cd6zYGUj%2FBLszSc2FC3l6fuCCgjEGehjNYsdrwfEpA%2B2hW0Mqdt7NvZ%2F%2FYRpLBKSyeC99TfNOd0FngrMERx5afHmjDgaQEn1n1lW9YmdlUWz9AmV91HyCc0jB3V2WEt%2FHw5nTVS9%2Bn5CxFbunxq0tU1isvDSkZzpWReFdsIE%2BMaVRGb8%2Bw9gB%2F4MwKE5Nngkz0hLN03ucdT8LqFIxKCx93zhKyHdBWYuRrgNOrRF6KpVIa96UpzALNE1A7aULub%2Bi8aqmBVArkjkq8XRJYWwjwmy0gKqpHmX6PSihUmZceDAOhKTV9i78SD15pdOxmNFOE91mWuocJ4ntLXRoYgWBDy9G4m1oXk3auk4usSr55KmhpXX74scipMICD5Zswu6o%2Bh%2FJvS0aWmA5v3WOdzdgjMN7%2Bmo4GOrICAm43JROb%2BU%2FOIdHknwavYJi7%2FEHGoRtw6uAyxyDv%2FprrOdrFmVpH1AOmlUPTrbM3qtnZ%2BnE9pcCZnqHJPI2dTwjFwDoIqChG%2FNu7Zn1NWEagH1%2FxDB%2B9ymdwn8oGr9xLCPik%2B1GVM1VfBupb0ZXo1ztbomamgz08B1LvO%2FUcwaH4V1LvV%2FpNg3T4chNBuggXPVJKOmsMTzPX95m2CnSQ4Tq%2BEWN%2BI9rpNlza4TQdIKF92DRnbuaG0dMvDx3fg0LqEN2vSGc1Jn5AdNntXOquzYtHR5jDKYN6FXhhsAntrEG%2FPJrUGON8iQuwtr4R%2B8%2FlB9DeEj3jNNcwsw94D%2FntHo76J9kT2xxhhjsGCjUNq3mykOP%2F%2F%2FInGYb0aXvnjGzRzAWQTlMfVHpwkFbct8FsWIYE&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20211225T073340Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ736Y4Y5FWXMBBPK%2F20211225%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=8364c106a0f1b543ea5cb8bf087ece59ab606f18a6062f0ae7ac9a1e4e887a68" alt="">
 </main>
