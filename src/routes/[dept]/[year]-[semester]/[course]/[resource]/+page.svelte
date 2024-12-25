@@ -2,7 +2,7 @@
     import { page } from '$app/stores';
     import type { PageData } from './$types';
     
-    export let data: PageData;
+    // export let data: PageData;
     const resource = $page.params.resource;
     const course = $page.params.course;
     
