@@ -12,7 +12,7 @@
             publisher: "MIT Press",
             edition: "4th Edition, 2022",
             pages: 1312,
-            coverImage: "/api/placeholder/300/400",
+            coverImage: "https://www.mheducation.com/cover-images/Jpeg_400-high/125967651X.jpeg",
             downloadUrl: "#"
         },
         {
@@ -21,7 +21,7 @@
             publisher: "Pearson",
             edition: "6th Edition, 2021",
             pages: 960,
-            coverImage: "/api/placeholder/300/400",
+            coverImage: "https://www.mheducation.com/cover-images/Jpeg_400-high/125967651X.jpeg",
             downloadUrl: "#"
         }
     ];

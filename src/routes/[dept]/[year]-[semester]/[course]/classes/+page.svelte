@@ -1,34 +1,33 @@
 <script lang="ts">
     import { page } from '$app/stores';
+	import { onMount } from 'svelte';
     import type { PageData } from './$types';
     
     export let data: PageData;
     
-    // Mock data - replace with real data from your backend
-    const playlists = [
-        {
-            snippet: {
-                title: "Data Structures and Algorithms - Full Course",
-                channelTitle: "Prof. Smith",
-                thumbnails: {
-                    medium: {
-                        url: "/api/placeholder/320/180"
-                    }
-                }
-            }
-        },
-        {
-            snippet: {
-                title: "Advanced Topics in Data Structures",
-                channelTitle: "Prof. Johnson",
-                thumbnails: {
-                    medium: {
-                        url: "/api/placeholder/320/180"
-                    }
-                }
-            }
-        }
-    ];
+    let posts;
+    let playlists = [];
+    let links = [
+        'PLOGi5-fAu8bErIxTwvOVjeZosAJCydb0x',
+        'PL50C17441DA8A565D',
+        'PL-K4T82WsptaboBALkJ5_8aVIfi87VIWs',
+        'PLDV1Zeh2NRsB6SWUrDFW2RmDotAfPbeHu',
+        'PL-K4T82WsptbKLSQSIvfBw-lAG6uhmayh',
+        'PLfllocyHVgsRwLkTAhG0E-2QxCf-ozBkk',
+        'PLajEH1jD0zp_9Q8wJdvQK_y8pGZ3KSvan',
+        'PLlTLLSskDvc9IbD2_CZDE7C2Ffb8dvpSz',
+        'PLJicmE8fK0EhX-7k1w5aRaVZJnzmrjzW0',
+        'PLhixgUqwRTjxglIswKp9mpkfPNfHkzyeN'
+    ]
+    onMount(async () => {
+        links.map(async (link) => {
+            const response = await fetch(`https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=${link}&key=AIzaSyBElqQmzHw7_76nXlR1kSonknk5KSpEgiI`);
+            posts = await response.json();
+            playlists = playlists.concat(posts.items);
+            console.log(playlists);
+            
+        })
+    })
 </script>
 
 <div class="min-h-screen bg-gray-50">
@@ -37,28 +36,24 @@
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {#each playlists as playlist}
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-200">
-                    <div class="aspect-video w-full">
-                        <img 
-                            class="w-full h-full object-cover"
-                            src={playlist.snippet.thumbnails.medium.url} 
-                            alt={playlist.snippet.title}
-                        />
+            <div class="m-2">
+                <div class=" h-28 aspect-video">
+                    <img class="" src="{playlist.snippet.thumbnails.medium.url}" alt="thumbnail">
+                </div>
+                <div class="h-28 mt-2 flex flex-col justify-between aspect-video font-semibold text-ellipsis">
+                    <div class="">
+                        {playlist.snippet.title}
                     </div>
-                    <div class="p-4">
-                        <h3 class="font-semibold text-lg mb-2 line-clamp-2">
-                            {playlist.snippet.title}
-                        </h3>
-                        <div class="space-y-2">
-                            <p class="text-sm text-gray-600">
-                                {playlist.snippet.channelTitle}
-                            </p>
-                            <button class="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">
-                                VIEW FULL PLAYLIST →
-                            </button>
+                    <div>
+                        <div class="text-sm font-light text-gray-700">
+                            {playlist.snippet.channelTitle}
+                        </div>
+                        <div class="text-sm font-semibold text-gray-700">
+                            VIEW FULL PLAYLIST
                         </div>
                     </div>
                 </div>
+            </div>
             {/each}
         </div>
 
